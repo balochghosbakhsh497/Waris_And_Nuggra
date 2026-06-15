@@ -196,7 +196,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('Nugra1/images4.jpg') center/cover no-repeat;
+    background: url('images4.jpg') center/cover no-repeat;
     position: relative;
 }
 
