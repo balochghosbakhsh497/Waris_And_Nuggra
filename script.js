@@ -220,7 +220,7 @@ function initMusicToggle() {
         } else {
             audio.pause();
             isPlaying = false;
-            icon.className = 'fas fa-volume-unmute';
+            icon.className = 'fas fa-volume-mute';
         }
     });
 }
