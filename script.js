@@ -41,7 +41,7 @@ function createPetal(container) {
 }
 
 function initCountdown() {
-    const weddingDate = new Date('June 15, 2026 00:00:00').getTime();
+    const weddingDate = new Date('August 15, 2026 00:00:00').getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
@@ -203,15 +203,23 @@ function initThemeToggle() {
 function initMusicToggle() {
     const musicToggle = document.getElementById('music-toggle');
     const icon = musicToggle.querySelector('i');
+    const audio = document.getElementById('bg-music');
+
     let isPlaying = false;
 
     musicToggle.addEventListener('click', () => {
-        isPlaying = !isPlaying;
-        
-        if (isPlaying) {
-            icon.className = 'fas fa-volume-up';
-            alert('Music would play here! For production, add an audio file.');
+        if (!isPlaying) {
+            audio.play()
+                .then(() => {
+                    isPlaying = true;
+                    icon.className = 'fas fa-volume-up';
+                })
+                .catch(err => {
+                    console.error('Audio playback failed:', err);
+                });
         } else {
+            audio.pause();
+            isPlaying = false;
             icon.className = 'fas fa-volume-mute';
         }
     });
